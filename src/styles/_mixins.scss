@@ -1,0 +1,20 @@
+@mixin tablet {
+    @media only screen and (min-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin flexbox ($flex-direction:row,
+    $flex-wrap:nowrap,
+    $justify-content:center,
+    $align-items: center,
+    $align-content: center) {
+
+    display: flex;
+    flex-direction: $flex-direction;
+    flex-wrap: $flex-wrap;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    align-content: $align-content;
+
+}

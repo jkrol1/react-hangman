@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap");
+@import 'variables';
+@import 'mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $fonts;
+}
+
+:root {
+    font-size: 62.5%;
+
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    min-width: $min-width;
+    min-height: $min-height;
+    @include flexbox($flex-direction:column);
+    background-color: $bg-color-main;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    max-height: $max-height;
+    min-height: $min-height;
+    min-width: $min-width;
+    @include flexbox($flex-direction:column, $justify-content:space-around);
+
+    .hangman {
+        height: 40%;
+        @include flexbox;
+    }
+
+    .random-word {
+        @include flexbox;
+
+        &__list {
+            height: 50%;
+            @include flexbox;
+            list-style-type: none;
+        }
+
+        &__letter {
+            height: 3.5rem;
+            font-size: 3rem;
+            width: 10%;
+            margin: 0 0.6rem;
+            text-align: center;
+
+            @include tablet {
+                margin: 0 1rem;
+                font-size: 4rem;
+            }
+        }
+    }
+
+    .input {
+        @include flexbox($flex-wrap:wrap, $align-content:flex-start);
+        margin: 0 0.3rem;
+
+        @include tablet {
+            width: 35rem;
+        }
+
+        &__letter {
+            width: 3.5rem;
+            height: 3.5rem;
+            font-size: 2.5rem;
+            padding: 0.5rem;
+            margin: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: $bg-color-button;
+            box-shadow: $box-shadow;
+            text-align: center;
+            line-height: 3rem;
+            transition: 0.2s;
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+            &--correct {
+                background-color: $bg-color-letter-correct;
+                pointer-events: none;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            &--incorrect {
+                background-color: $bg-color-letter-incorrect;
+                pointer-events: none;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.modal {
+
+    height: 100vh;
+    max-height: $max-height;
+    min-height: $min-height;
+    min-width: $min-width;
+    font-size: 2rem;
+
+    @include flexbox($flex-direction:column);
+
+    &__game-state {
+        font-size: 5rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+
+    &__text,
+    &__answer {
+        text-align: center;
+
+    }
+
+    &__answer {
+        font-size: 3.5rem;
+        margin-top: 1rem;
+        margin: 1rem 0 2.5rem 0;
+    }
+
+    &__btn {
+        width: 15rem;
+        height: 5rem;
+        font-size: 2rem;
+        background-color: $bg-color-button;
+        border-radius: 0.5rem;
+        border: none;
+        transition: 0.25s;
+        box-shadow: $box-shadow;
+
+        &:hover {
+            transform: translate(0, -0.5rem);
+        }
+    }
+
+}
