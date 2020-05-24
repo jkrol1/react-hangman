@@ -51,6 +51,13 @@ const App = () => {
 
     useEffect(() => {
         dispatch(fetchRandomWord());
+        
+        // Adjust root height to window height
+        ["load", "resize"].forEach(event => {
+            window.addEventListener(event, () => {
+                document.getElementById('root').style.height = `${window.innerHeight}px`;
+            })
+        });
     }, []);
 
     if (gameStarted === false) {

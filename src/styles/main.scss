@@ -15,7 +15,6 @@
 }
 
 #root {
-    height: 100vh;
     width: 100vw;
     min-width: $min-width;
     min-height: $min-height;
@@ -27,8 +26,6 @@
     height: 100%;
     width: 100%;
     max-height: $max-height;
-    min-height: $min-height;
-    min-width: $min-width;
     @include flexbox($flex-direction:column, $justify-content:space-around);
 
     .hangman {
@@ -47,7 +44,7 @@
 
         &__letter {
             height: 3.5rem;
-            font-size: 3rem;
+            font-size: 2.5rem;
             width: 10%;
             margin: 0 0.6rem;
             text-align: center;
