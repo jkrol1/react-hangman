@@ -30,9 +30,18 @@ const actionButton = (dispatch, action) => {
 
 const checkIfGameWon = (randomWord, guessedLetters) => {
 
-    const randomWordWoDuplicates = Array.from(new Set(randomWord)).join('').replace('-', '');
-    const gameWon = randomWordWoDuplicates.length === guessedLetters.length & randomWord !== '';
-    return gameWon;
+    const guessedWord = randomWord.split("").map(letter => {
+
+        if (letter === "-") {
+            return letter;
+        } else if (guessedLetters.includes(letter)) {
+            return letter;
+        } else {
+            return "_";
+        }
+    });
+
+    return guessedWord.join("") === randomWord & randomWord !== "";
 }
 
 const App = () => {
